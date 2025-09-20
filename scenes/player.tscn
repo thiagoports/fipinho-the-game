@@ -42,8 +42,8 @@ height = 126.0
 script = ExtResource("1_qlg0r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(62.625, 75.4518)
-scale = Vector2(2.00904, 2.00904)
+position = Vector2(28.1249, 33.8854)
+scale = Vector2(1.17771, 1.17771)
 sprite_frames = SubResource("SpriteFrames_smehm")
 animation = &"walk"
 
