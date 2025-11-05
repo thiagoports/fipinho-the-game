@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://ctwinekscx70f"]
+
+[ext_resource type="Texture2D" uid="uid://dtbs8jexxit2" path="res://sprites/spritesheet/ryu/hadouken-ball.png" id="1"]
+[ext_resource type="Script" uid="uid://dp0xdrhk8uk4q" path="res://scripts/Hadouken.gd" id="2"]
+
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 258, 258)
+
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("1")
+region = Rect2(258, 0, 258, 258)
+
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("1")
+region = Rect2(0, 258, 258, 258)
+
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("1")
+region = Rect2(258, 258, 258, 258)
+
+[sub_resource type="SpriteFrames" id="5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}, {
+"duration": 1.0,
+"texture": SubResource("2")
+}, {
+"duration": 1.0,
+"texture": SubResource("3")
+}, {
+"duration": 1.0,
+"texture": SubResource("4")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="6"]
+radius = 40.610092
+
+[node name="Hadouken" type="CharacterBody2D"]
+script = ExtResource("2")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.827451)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("5")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(13.8919, 1.5892)
+shape = SubResource("6")
+
+[node name="Notifier" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="Notifier" to="." method="_on_Notifier_screen_exited"]

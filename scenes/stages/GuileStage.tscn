@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwdt2qg7fe01x"]
+
+[ext_resource type="Texture2D" uid="uid://dnaqkfl6djsfc" path="res://sprites/spritesheet/fip-stage/guile-stage.png" id="1_66lur"]
+
+[sub_resource type="AudioStreamOggVorbis" id="1"]
+
+[node name="Stage" type="Node"]
+
+[node name="Background" type="ParallaxBackground" parent="."]
+
+[node name="Layer" type="ParallaxLayer" parent="Background"]
+
+[node name="Sprite" type="Sprite2D" parent="Background/Layer"]
+position = Vector2(491, 261)
+scale = Vector2(0.86519605, 0.97625)
+texture = ExtResource("1_66lur")
+
+[node name="Theme" type="AudioStreamPlayer" parent="."]
+stream = SubResource("1")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(512, 300)
+limit_left = 0
+limit_right = 1850
+limit_bottom = 600

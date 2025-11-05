@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3s6syo8hrkjl"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jg03a"]
+load_path = "res://.godot/imported/ryu-stage.jpg-ceb30be20a7ccc4150f26cb8f9e32d86.ctex"
+
+[sub_resource type="AudioStreamOggVorbis" id="1"]
+
+[node name="Stage" type="Node"]
+
+[node name="Background" type="ParallaxBackground" parent="."]
+
+[node name="Layer" type="ParallaxLayer" parent="Background"]
+
+[node name="Sprite" type="Sprite2D" parent="Background/Layer"]
+position = Vector2(652.041, 281.345)
+scale = Vector2(1.1, 1.1)
+texture = SubResource("CompressedTexture2D_jg03a")
+
+[node name="Theme" type="AudioStreamPlayer" parent="."]
+stream = SubResource("1")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(512, 300)
+limit_left = 0
+limit_right = 1315
+limit_bottom = 600
