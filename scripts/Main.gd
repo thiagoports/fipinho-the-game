@@ -3,8 +3,8 @@ extends Node2D
 var timer
 var sequence = []
 var moves = {
-	"hadouken"  : ["down", "front", "punch"],
-	"shoryuken" : ["front", "down", "front", "punch"],
+	"hadouken"  : ["punch"],
+	"shoryuken" : ["down", "punch"],
 }
 
 func _ready():

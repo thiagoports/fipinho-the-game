@@ -1,38 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctwinekscx70f"]
+[gd_scene load_steps=8 format=3 uid="uid://ctwinekscx70f"]
 
-[ext_resource type="Texture2D" uid="uid://dtbs8jexxit2" path="res://sprites/spritesheet/ryu/hadouken-ball.png" id="1"]
 [ext_resource type="Script" uid="uid://dp0xdrhk8uk4q" path="res://scripts/Hadouken.gd" id="2"]
-
-[sub_resource type="AtlasTexture" id="1"]
-atlas = ExtResource("1")
-region = Rect2(0, 0, 258, 258)
-
-[sub_resource type="AtlasTexture" id="2"]
-atlas = ExtResource("1")
-region = Rect2(258, 0, 258, 258)
-
-[sub_resource type="AtlasTexture" id="3"]
-atlas = ExtResource("1")
-region = Rect2(0, 258, 258, 258)
-
-[sub_resource type="AtlasTexture" id="4"]
-atlas = ExtResource("1")
-region = Rect2(258, 258, 258, 258)
+[ext_resource type="Texture2D" uid="uid://b4s2hu63ppova" path="res://sprites/spritesheet/ataque_especial/ataque_especial 1.png" id="2_vam2v"]
+[ext_resource type="Texture2D" uid="uid://d0vnxqrttgyny" path="res://sprites/spritesheet/ataque_especial/ataque_especial 2.png" id="3_kyjs7"]
+[ext_resource type="Texture2D" uid="uid://bk1d6oy16dlc7" path="res://sprites/spritesheet/ataque_especial/ataque_especial 3.png" id="4_tabt0"]
+[ext_resource type="Texture2D" uid="uid://cea4t1ip27ns4" path="res://sprites/spritesheet/ataque_especial/ataque_especial 4.png" id="5_rjka1"]
 
 [sub_resource type="SpriteFrames" id="5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("1")
+"texture": ExtResource("2_vam2v")
 }, {
 "duration": 1.0,
-"texture": SubResource("2")
+"texture": ExtResource("3_kyjs7")
 }, {
 "duration": 1.0,
-"texture": SubResource("3")
+"texture": ExtResource("4_tabt0")
 }, {
 "duration": 1.0,
-"texture": SubResource("4")
+"texture": ExtResource("5_rjka1")
 }],
 "loop": false,
 "name": &"default",

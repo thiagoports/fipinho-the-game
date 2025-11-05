@@ -11,8 +11,8 @@
 [node name="Layer" type="ParallaxLayer" parent="Background"]
 
 [node name="Sprite" type="Sprite2D" parent="Background/Layer"]
-position = Vector2(491, 261)
-scale = Vector2(0.86519605, 0.97625)
+position = Vector2(498.00003, 242)
+scale = Vector2(0.8012203, 0.90406245)
 texture = ExtResource("1_66lur")
 
 [node name="Theme" type="AudioStreamPlayer" parent="."]

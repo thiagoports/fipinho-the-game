@@ -1,131 +1,28 @@
-[gd_scene load_steps=31 format=3 uid="uid://dchnom5uncbc7"]
+[gd_scene load_steps=9 format=3 uid="uid://dchnom5uncbc7"]
 
-[ext_resource type="Texture2D" uid="uid://dpf32eu6bp1ab" path="res://sprites/spritesheet/ryu/idle.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://d2e8xf2bkpgak" path="res://sprites/spritesheet/ryu/walking.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://qa5hr8r1w21h" path="res://sprites/spritesheet/fipinho/ataque_especial/fipinho_especial.png" id="2_ohvcw"]
 [ext_resource type="Script" uid="uid://dy2pngitsvnvs" path="res://scripts/Ryu.gd" id="3"]
-[ext_resource type="Texture2D" uid="uid://ch1fuxth5ref0" path="res://sprites/spritesheet/ryu/jump.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://ocdmf446v270" path="res://sprites/spritesheet/ryu/hadouken.png" id="5"]
-[ext_resource type="Texture2D" uid="uid://cwv0egk5rrr0w" path="res://sprites/spritesheet/ryu/shoryuken.png" id="6"]
-
-[sub_resource type="AtlasTexture" id="9"]
-atlas = ExtResource("5")
-region = Rect2(0, 0, 74, 120)
-
-[sub_resource type="AtlasTexture" id="10"]
-atlas = ExtResource("5")
-region = Rect2(74, 0, 74, 120)
-
-[sub_resource type="AtlasTexture" id="11"]
-atlas = ExtResource("5")
-region = Rect2(148, 0, 74, 120)
-
-[sub_resource type="AtlasTexture" id="12"]
-atlas = ExtResource("5")
-region = Rect2(222, 0, 74, 120)
-
-[sub_resource type="AtlasTexture" id="1"]
-atlas = ExtResource("1")
-region = Rect2(0, 0, 45, 120)
-
-[sub_resource type="AtlasTexture" id="2"]
-atlas = ExtResource("1")
-region = Rect2(45, 0, 45, 120)
-
-[sub_resource type="AtlasTexture" id="3"]
-atlas = ExtResource("1")
-region = Rect2(90, 0, 45, 120)
-
-[sub_resource type="AtlasTexture" id="4"]
-atlas = ExtResource("1")
-region = Rect2(135, 0, 45, 120)
-
-[sub_resource type="AtlasTexture" id="20"]
-atlas = ExtResource("4")
-region = Rect2(0, 0, 38, 120)
-
-[sub_resource type="AtlasTexture" id="21"]
-atlas = ExtResource("4")
-region = Rect2(38, 0, 38, 120)
-
-[sub_resource type="AtlasTexture" id="22"]
-atlas = ExtResource("4")
-region = Rect2(76, 0, 38, 120)
-
-[sub_resource type="AtlasTexture" id="13"]
-atlas = ExtResource("6")
-region = Rect2(0, 0, 58, 120)
-
-[sub_resource type="AtlasTexture" id="14"]
-atlas = ExtResource("6")
-region = Rect2(58, 0, 58, 120)
-
-[sub_resource type="AtlasTexture" id="15"]
-atlas = ExtResource("6")
-region = Rect2(116, 0, 58, 120)
-
-[sub_resource type="AtlasTexture" id="16"]
-atlas = ExtResource("6")
-region = Rect2(174, 0, 58, 120)
-
-[sub_resource type="AtlasTexture" id="17"]
-atlas = ExtResource("6")
-region = Rect2(232, 0, 58, 120)
-
-[sub_resource type="AtlasTexture" id="18"]
-atlas = ExtResource("6")
-region = Rect2(290, 0, 58, 120)
-
-[sub_resource type="AtlasTexture" id="19"]
-atlas = ExtResource("6")
-region = Rect2(348, 0, 58, 120)
-
-[sub_resource type="AtlasTexture" id="5"]
-atlas = ExtResource("2")
-region = Rect2(0, 0, 45, 120)
-
-[sub_resource type="AtlasTexture" id="6"]
-atlas = ExtResource("2")
-region = Rect2(45, 0, 45, 120)
-
-[sub_resource type="AtlasTexture" id="7"]
-atlas = ExtResource("2")
-region = Rect2(90, 0, 45, 120)
-
-[sub_resource type="AtlasTexture" id="8"]
-atlas = ExtResource("2")
-region = Rect2(135, 0, 45, 120)
+[ext_resource type="Texture2D" uid="uid://dv3gkxngthrhq" path="res://sprites/spritesheet/fipinho/ataque_especial/fipinho_preparando.png" id="3_0o0yc"]
+[ext_resource type="Texture2D" uid="uid://b13oqsuo1vt0g" path="res://sprites/spritesheet/fipinho/fipinho_parado.png" id="3_ohvcw"]
+[ext_resource type="Texture2D" uid="uid://dvne5yusoo383" path="res://sprites/spritesheet/fipinho/fipinho_pulando.png" id="4_ohvcw"]
+[ext_resource type="Texture2D" uid="uid://byxu46dl34152" path="res://sprites/spritesheet/fipinho/ataque_basico/fipinho_ataque_basico.png" id="6_ohvcw"]
 
 [sub_resource type="SpriteFrames" id="23"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("9")
+"texture": ExtResource("3_0o0yc")
 }, {
 "duration": 1.0,
-"texture": SubResource("10")
-}, {
-"duration": 1.0,
-"texture": SubResource("11")
-}, {
-"duration": 1.0,
-"texture": SubResource("12")
+"texture": ExtResource("2_ohvcw")
 }],
 "loop": false,
 "name": &"hadouken",
-"speed": 7.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("1")
-}, {
-"duration": 1.0,
-"texture": SubResource("2")
-}, {
-"duration": 1.0,
-"texture": SubResource("3")
-}, {
-"duration": 1.0,
-"texture": SubResource("4")
+"texture": ExtResource("3_ohvcw")
 }],
 "loop": true,
 "name": &"idle",
@@ -133,13 +30,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("20")
-}, {
-"duration": 1.0,
-"texture": SubResource("21")
-}, {
-"duration": 1.0,
-"texture": SubResource("22")
+"texture": ExtResource("4_ohvcw")
 }],
 "loop": true,
 "name": &"jump",
@@ -147,42 +38,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("13")
-}, {
-"duration": 1.0,
-"texture": SubResource("14")
-}, {
-"duration": 1.0,
-"texture": SubResource("15")
-}, {
-"duration": 1.0,
-"texture": SubResource("16")
-}, {
-"duration": 1.0,
-"texture": SubResource("17")
-}, {
-"duration": 1.0,
-"texture": SubResource("18")
-}, {
-"duration": 1.0,
-"texture": SubResource("19")
+"texture": ExtResource("6_ohvcw")
 }],
 "loop": false,
 "name": &"shoryuken",
-"speed": 10.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("5")
-}, {
-"duration": 1.0,
-"texture": SubResource("6")
-}, {
-"duration": 1.0,
-"texture": SubResource("7")
-}, {
-"duration": 1.0,
-"texture": SubResource("8")
+"texture": ExtResource("3_ohvcw")
 }],
 "loop": true,
 "name": &"walking",
@@ -196,11 +60,13 @@ size = Vector2(161.45, 320.034)
 script = ExtResource("3")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(4, 4)
+position = Vector2(16.999998, 72)
+scale = Vector2(0.9786711, 0.9786708)
 sprite_frames = SubResource("23")
 animation = &"shoryuken"
 
 [node name="Body" type="CollisionShape2D" parent="."]
+position = Vector2(16, -9)
 shape = SubResource("24")
 
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_Sprite_animation_finished"]

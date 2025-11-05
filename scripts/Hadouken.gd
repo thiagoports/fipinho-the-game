@@ -1,37 +1,24 @@
 extends CharacterBody2D
 
 @export var speed: int = 450
-@export var direction = 0 # (int, "left", "right")
-
-var bullet_dir=-1
+var direction: int = 1  # 1 = direita, -1 = esquerda
 
 func _ready():
-	pass
-
-func set_direction( dir ):
-	self.direction = dir
+	# Define a orientação visual do hadouken
+	if direction == -1:
+		$Sprite2D.flip_h = true
+	else:
+		$Sprite2D.flip_h = false
 
 func _physics_process(delta):
-	if( direction == 0 ):
-		# Left
-		$Sprite2D.flip_h=true
-		bullet_dir = -1
-	else:
-		# Right
-		$Sprite2D.flip_h=false
-		bullet_dir = 1
-	
-	var info = move_and_collide( Vector2(bullet_dir, 0) * speed * delta )
+	# Movimento contínuo na direção definida
+	var collision = move_and_collide(Vector2(direction, 0) * speed * delta)
 
-	if info && info.collider.is_in_group("enemies"):
-		# Collides with a enemy
-		info.collider.queue_free()
-		self.queue_free()
-	elif info && !info.collider.is_in_group("enemies"):
-		# Collides with other thing
-		self.queue_free()
+	if collision:
+		if collision.collider.is_in_group("enemies"):
+			collision.collider.queue_free()  # destrói o inimigo
+		queue_free()  # destrói o hadouken ao colidir com qualquer coisa
 
 func _on_Notifier_screen_exited():
-	print("bullet exited")
-	# Destroy this bullet
-	self.queue_free()
+	# Remove o hadouken ao sair da tela
+	queue_free()

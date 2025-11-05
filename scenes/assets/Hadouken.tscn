@@ -1,47 +1,48 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://6cw1eyxi306o"]
 
-[ext_resource path="res://sprites/spritesheet/ryu/hadouken-ball.png" type="Texture2D" id=1]
-[ext_resource path="res://scripts/Hadouken.gd" type="Script" id=2]
+[ext_resource type="Script" uid="uid://dp0xdrhk8uk4q" path="res://scripts/Hadouken.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://b4s2hu63ppova" path="res://sprites/spritesheet/ataque_especial/ataque_especial 1.png" id="2_j6dj7"]
+[ext_resource type="Texture2D" uid="uid://d0vnxqrttgyny" path="res://sprites/spritesheet/ataque_especial/ataque_especial 2.png" id="3_goyl8"]
+[ext_resource type="Texture2D" uid="uid://bk1d6oy16dlc7" path="res://sprites/spritesheet/ataque_especial/ataque_especial 3.png" id="4_800af"]
+[ext_resource type="Texture2D" uid="uid://cea4t1ip27ns4" path="res://sprites/spritesheet/ataque_especial/ataque_especial 4.png" id="5_xv7an"]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 258, 258 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 1 )
-region = Rect2( 258, 0, 258, 258 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 258, 258, 258 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 1 )
-region = Rect2( 258, 258, 258, 258 )
-
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+[sub_resource type="SpriteFrames" id="5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_j6dj7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_goyl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_800af")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xv7an")
+}],
 "loop": true,
-"name": "default",
-"speed": 10.0
-} ]
+"name": &"default",
+"speed": 5.0
+}]
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id="6"]
 radius = 41.3825
 
 [node name="Hadouken" type="CharacterBody2D"]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color( 1, 1, 1, 0.827451 )
-scale = Vector2( 0.6, 0.6 )
-frames = SubResource( 5 )
-playing = true
+modulate = Color(1, 1, 1, 0.827451)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("5")
+autoplay = "default"
+frame_progress = 1.0
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2( 13.8919, 1.5892 )
-shape = SubResource( 6 )
+position = Vector2(13.8919, 1.5892)
+shape = SubResource("6")
 
 [node name="Notifier" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="screen_exited" from="Notifier" to="." method="_on_Notifier_screen_exited"]

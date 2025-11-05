@@ -1,8 +1,7 @@
 res://default_env.tres
-res://scripts/Global.gd
-res://scripts/Hadouken.gd
-res://scenes/Hadouken.tscn
-res://scripts/Main.gd
-res://scenes/stages/GuileStage.tscn
 res://scenes/chars/Ryu.tscn
+res://scripts/Main.gd
+res://scenes/assets/Hadouken.tscn
+res://scenes/Hadouken.tscn
 res://scripts/Ryu.gd
+res://scripts/Hadouken.gd
