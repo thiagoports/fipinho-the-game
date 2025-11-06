@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b13oqsuo1vt0g" path="res://sprites/spritesheet/fipinho/fipinho_parado.png" id="4_ilrth"]
 [ext_resource type="Texture2D" uid="uid://dvne5yusoo383" path="res://sprites/spritesheet/fipinho/fipinho_pulando.png" id="5_1hwhu"]
 [ext_resource type="Texture2D" uid="uid://c22d2w17scdhn" path="res://sprites/spritesheet/fipinho/ataque_basico/ataque_basico 1.png" id="6_pk3sj"]
-[ext_resource type="Texture2D" uid="uid://b8qrr6aasguu4" path="res://sprites/spritesheet/fipinho/ataque_basico/ataque_basico 2.png" id="7_h7iix"]
+[ext_resource type="Texture2D" uid="uid://dsnbilicg0wkl" path="res://sprites/spritesheet/fipinho/ataque_basico/ataque_basico 2.png" id="7_h7iix"]
 
 [sub_resource type="SpriteFrames" id="23"]
 animations = [{

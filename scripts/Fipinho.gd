@@ -1,112 +1,110 @@
 extends CharacterBody2D
 
-const UP = Vector2(0, -1)
-const GRAVITY = 20
-const SPEED = 200
-const JUMP_HEIGHT = -650
+const CIMA = Vector2(0, -1)
+const GRAVIDADE = 20
+const VELOCIDADE = 200
+const ALTURA_PULO = -650
 
-var special = null               # Especial em execução
-var motion = Vector2()
-var hero_direction = 1           # 1 = direita, -1 = esquerda
-var defending = false            # Defesa ativa
-var buffered_special = null      # Ataque guardado no buffer
+var especial_ativa = null
+var movimento = Vector2()
+var direcao_heroi = 1
+var defendendo = false
+var especial_armazenada = null
 
 func _ready():
 	$Sprite2D.flip_h = false
 
-# Detecta inputs
 func _input(event):
-	# Ataques com buffer
 	if event.is_action_pressed("especial"):
-		if special:
-			buffered_special = "especial"
+		if especial_ativa:
+			especial_armazenada = "especial"
 		else:
 			set_special("especial")
 	elif event.is_action_pressed("ataque"):
-		if special:
-			buffered_special = "ataque"
+		if especial_ativa:
+			especial_armazenada = "ataque"
 		else:
 			set_special("ataque")
 	
-	# Defesa
 	if event.is_action_pressed("ui_defesa"):
-		defending = true
+		defendendo = true
 	elif event.is_action_released("ui_defesa"):
-		defending = false
+		defendendo = false
 
-# Define e inicia um especial
-func set_special(special_name):
-	print("## Special Name ##", special_name)
-	special = special_name
-	$Sprite2D.play(special)
+func set_special(nome_especial):
+	especial_ativa = nome_especial
+	$Sprite2D.play(nome_especial)
 
-# Função do shoryuken
 func ataque():
-	# Aqui você pode instanciar o shoryuken se houver
+	var sfx = AudioStreamPlayer2D.new()
+	sfx.stream = load("res://sfx/ataque.mp3")
+	sfx.position = position
+	get_parent().add_child(sfx)
+	sfx.play()
+	sfx.finished.connect(func(): sfx.queue_free())
 	pass
 
-# Função do hadouken
 func especial():
+	var sfx = AudioStreamPlayer2D.new()
+	sfx.stream = load("res://sfx/especial.mp3")
+	sfx.position = position
+	get_parent().add_child(sfx)
+	sfx.play()
 	var pre_especial = preload("res://scenes/assets/Especial.tscn")
-	var especial = pre_especial.instantiate()
+	var especial_inst = pre_especial.instantiate()
 
-	especial.direction = hero_direction
-	especial.position.y = self.position.y - -50
-	especial.position.x = self.position.x + (190 * hero_direction)
+	especial_inst.direction = direcao_heroi
+	especial_inst.position.y = self.position.y - -50
+	especial_inst.position.x = self.position.x + (190 * direcao_heroi)
 
-	get_parent().add_child(especial)
+	get_parent().add_child(especial_inst)
+	sfx.finished.connect(func(): sfx.queue_free())
 
-# Movimento e física
 func _physics_process(delta):
-	motion.y += GRAVITY
+	movimento.y += GRAVIDADE
 
-	# Trava movimento durante especial ou defesa
-	if special:
-		motion.x = 0
-		$Sprite2D.play(special)
-	elif defending:
-		motion.x = 0
-		$Sprite2D.play("ui_defesa")  # animação de defesa
+	if especial_ativa:
+		movimento.x = 0
+		$Sprite2D.play(especial_ativa)
+	elif defendendo:
+		movimento.x = 0
+		$Sprite2D.play("ui_defesa")
 	else:
-		# Movimento normal
 		if Input.is_action_pressed("ui_left"):
-			motion.x = -SPEED
-			hero_direction = -1
+			movimento.x = -VELOCIDADE
+			direcao_heroi = -1
 			$Sprite2D.flip_h = true
 			$Sprite2D.play("walking")
 		elif Input.is_action_pressed("ui_right"):
-			motion.x = SPEED
-			hero_direction = 1
+			movimento.x = VELOCIDADE
+			direcao_heroi = 1
 			$Sprite2D.flip_h = false
 			$Sprite2D.play("walking")
 		else:
-			motion.x = 0
+			movimento.x = 0
 			$Sprite2D.play("idle")
 
-	# Pular se estiver no chão e não estiver defendendo ou em especial
-	if is_on_floor() and not defending and not special:
+	if is_on_floor() and not defendendo and not especial_ativa:
 		if Input.is_action_pressed("ui_up"):
-			motion.y = JUMP_HEIGHT
+			movimento.y = ALTURA_PULO
 	else:
-		if not defending and not special:
+		if not defendendo and not especial_ativa:
 			$Sprite2D.play("jump")
 
-	set_velocity(motion)
-	set_up_direction(UP)
+	set_velocity(movimento)
+	set_up_direction(CIMA)
 	move_and_slide()
-	motion = velocity
+	movimento = velocity
 
-# Quando a animação termina
 func _on_Sprite_animation_finished():
-	var name = $Sprite2D.get_animation()
-	if name == "especial":
+	var nome = $Sprite2D.get_animation()
+	if nome == "especial":
 		especial()
-	elif name == "ataque":
+	elif nome == "ataque":
 		ataque()
 	
-	special = null
+	especial_ativa = null
 	
-	# Executa qualquer ataque guardado no buffer
-	if buffered_special:
-		set_special(buffered_special)
-		buffered_special = null
+	if especial_armazenada:
+		set_special(especial_armazenada)
+		especial_armazenada = null

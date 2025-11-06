@@ -1,9 +1,7 @@
-res://scenes/Hadouken.tscn
-res://scenes/Especial.tscn
-res://scripts/Ryu.gd
-res://scripts/Global.gd
 res://scenes/chars/Fipinho.tscn
-res://scripts/Main.gd
-res://scenes/assets/Especial.tscn
-res://scripts/Especial.gd
 res://scripts/Fipinho.gd
+res://scripts/Global.gd
+res://scripts/Main.gd
+res://scenes/main.tscn
+res://scripts/Especial.gd
+res://README.md
