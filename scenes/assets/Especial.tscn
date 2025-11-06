@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://6cw1eyxi306o"]
 
-[ext_resource type="Script" uid="uid://dp0xdrhk8uk4q" path="res://scripts/Hadouken.gd" id="2"]
+[ext_resource type="Script" uid="uid://dp0xdrhk8uk4q" path="res://scripts/Especial.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://b4s2hu63ppova" path="res://sprites/spritesheet/ataque_especial/ataque_especial 1.png" id="2_j6dj7"]
 [ext_resource type="Texture2D" uid="uid://d0vnxqrttgyny" path="res://sprites/spritesheet/ataque_especial/ataque_especial 2.png" id="3_goyl8"]
 [ext_resource type="Texture2D" uid="uid://bk1d6oy16dlc7" path="res://sprites/spritesheet/ataque_especial/ataque_especial 3.png" id="4_800af"]
@@ -29,7 +29,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="6"]
 radius = 41.3825
 
-[node name="Hadouken" type="CharacterBody2D"]
+[node name="Especial" type="CharacterBody2D"]
 script = ExtResource("2")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]

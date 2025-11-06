@@ -17,16 +17,16 @@ func _ready():
 # Detecta inputs
 func _input(event):
 	# Ataques com buffer
-	if event.is_action_pressed("hadouken"):
+	if event.is_action_pressed("especial"):
 		if special:
-			buffered_special = "hadouken"
+			buffered_special = "especial"
 		else:
-			set_special("hadouken")
-	elif event.is_action_pressed("shoryuken"):
+			set_special("especial")
+	elif event.is_action_pressed("ataque"):
 		if special:
-			buffered_special = "shoryuken"
+			buffered_special = "ataque"
 		else:
-			set_special("shoryuken")
+			set_special("ataque")
 	
 	# Defesa
 	if event.is_action_pressed("ui_defesa"):
@@ -41,22 +41,20 @@ func set_special(special_name):
 	$Sprite2D.play(special)
 
 # Função do shoryuken
-func shoryuken():
-	$"../FX/Shoryuken".play()
+func ataque():
 	# Aqui você pode instanciar o shoryuken se houver
 	pass
 
 # Função do hadouken
-func hadouken():
-	$"../FX/Hadouken".play()
-	var pre_hadouken = preload("res://scenes/assets/Hadouken.tscn")
-	var hadouken = pre_hadouken.instantiate()
+func especial():
+	var pre_especial = preload("res://scenes/assets/Especial.tscn")
+	var especial = pre_especial.instantiate()
 
-	hadouken.direction = hero_direction
-	hadouken.position.y = self.position.y - -50
-	hadouken.position.x = self.position.x + (190 * hero_direction)
+	especial.direction = hero_direction
+	especial.position.y = self.position.y - -50
+	especial.position.x = self.position.x + (190 * hero_direction)
 
-	get_parent().add_child(hadouken)
+	get_parent().add_child(especial)
 
 # Movimento e física
 func _physics_process(delta):
@@ -101,10 +99,10 @@ func _physics_process(delta):
 # Quando a animação termina
 func _on_Sprite_animation_finished():
 	var name = $Sprite2D.get_animation()
-	if name == "hadouken":
-		hadouken()
-	elif name == "shoryuken":
-		shoryuken()
+	if name == "especial":
+		especial()
+	elif name == "ataque":
+		ataque()
 	
 	special = null
 	

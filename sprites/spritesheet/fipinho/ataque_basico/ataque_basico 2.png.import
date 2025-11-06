@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv3gkxngthrhq"
-path="res://.godot/imported/fipinho_preparando.png-a3fb771256ef40aa9577a4cb1dacf060.ctex"
+uid="uid://b8qrr6aasguu4"
+path="res://.godot/imported/ataque_basico 2.png-2fa77876a981d022efe84f64dadadea8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spritesheet/fipinho/ataque_especial/fipinho_preparando.png"
-dest_files=["res://.godot/imported/fipinho_preparando.png-a3fb771256ef40aa9577a4cb1dacf060.ctex"]
+source_file="res://sprites/spritesheet/fipinho/ataque_basico/ataque_basico 2.png"
+dest_files=["res://.godot/imported/ataque_basico 2.png-2fa77876a981d022efe84f64dadadea8.ctex"]
 
 [params]
 

@@ -1,3 +1,9 @@
-res://default_env.tres
-res://scenes/chars/Ryu.tscn
-res://README.md
+res://scenes/Hadouken.tscn
+res://scenes/Especial.tscn
+res://scripts/Ryu.gd
+res://scripts/Global.gd
+res://scenes/chars/Fipinho.tscn
+res://scripts/Main.gd
+res://scenes/assets/Especial.tscn
+res://scripts/Especial.gd
+res://scripts/Fipinho.gd

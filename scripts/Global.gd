@@ -4,10 +4,10 @@ var camera = null
 var player1 = null 
 
 var players = {
-	"ryu": preload("res://scenes/chars/Ryu.tscn"),
+	"Fipinho": preload("res://scenes/chars/Fipinho.tscn"),
 }
 
-var stages = preload("res://scenes/stages/GuileStage.tscn")
+var stages = preload("res://scenes/stages/Unifip.tscn")
 
 func _ready():
 	print("Global settings")
