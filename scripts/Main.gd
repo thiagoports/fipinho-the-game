@@ -3,16 +3,16 @@ extends Node2D
 var timer
 var sequence = []
 var moves = {
-	"hadouken"  : ["punch"],
-	"shoryuken" : ["down", "punch"],
+	"ataque" : ["punch"],
+	"especial"  : ["down", "punch"],
 }
 
 func _ready():
 	# Loads the stage
-	Global.loadStage(self, "ryu")
+	Global.loadStage(self, "Fipinho")
 	
 	# Loads the player one
-	Global.loadPlayer1( self, "ryu", Vector2(192,343))
+	Global.loadPlayer1( self, "Fipinho", Vector2(192,343))
 
 	# Sequence timer (user for specials)
 	self._config_timer()
@@ -37,7 +37,7 @@ func _add_input_to_sequence( action ):
 	sequence.push_back( action )
 
 func _play_action( action ):
-	$Ryu.set_special( action )
+	$Fipinho.set_special( action )
 
 func _check_sequence( sequence ):
 	for move_name in moves.keys():
