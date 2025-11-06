@@ -17,9 +17,6 @@ func _ready():
 	# Sequence timer (user for specials)
 	self._config_timer()
 
-func _process(delta):
-	pass
-
 func _config_timer():
 	timer = Timer.new()
 	add_child(timer)

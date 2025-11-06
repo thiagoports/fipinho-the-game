@@ -1,7 +1,2 @@
 res://default_env.tres
 res://scenes/chars/Ryu.tscn
-res://scripts/Main.gd
-res://scenes/assets/Hadouken.tscn
-res://scenes/Hadouken.tscn
-res://scripts/Ryu.gd
-res://scripts/Hadouken.gd
