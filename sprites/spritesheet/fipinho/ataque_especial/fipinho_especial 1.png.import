@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qa5hr8r1w21h"
-path="res://.godot/imported/fipinho_especial.png-02e6c2973b2a9ba50f4687535b69dfd5.ctex"
+uid="uid://dv3gkxngthrhq"
+path="res://.godot/imported/fipinho_especial 1.png-369d261958b125b16f7be526fd52d29e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spritesheet/fipinho/ataque_especial/fipinho_especial.png"
-dest_files=["res://.godot/imported/fipinho_especial.png-02e6c2973b2a9ba50f4687535b69dfd5.ctex"]
+source_file="res://sprites/spritesheet/fipinho/ataque_especial/fipinho_especial 1.png"
+dest_files=["res://.godot/imported/fipinho_especial 1.png-369d261958b125b16f7be526fd52d29e.ctex"]
 
 [params]
 

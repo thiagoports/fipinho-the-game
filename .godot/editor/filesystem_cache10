@@ -1,11 +1,10 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1762397518
-README.md::TextFile::-1::1762396922::0::1::::<><><>0<>0<><>::
-::res://music/::1762397296
-roa-music-pixel-story.mp3::AudioStreamMP3::2170044744152450042::1762397245::1762397260::1::::<><><>0<>0<>19548da2800c9016a95439630e1b1688<>res://.godot/imported/roa-music-pixel-story.mp3-9603fc296fe00114feab1fc20c7a0b3d.mp3str::
-::res://samples/::1762397518
+::res://::1762399755
+README.md::TextFile::-1::1762397902::0::1::::<><><>0<>0<><>::
+::res://music/::1762397992
+roa-music-pixel-story.mp3::AudioStreamMP3::5313191324302767023::1762397245::1762397992::1::::<><><>0<>0<>be5006554ecf51cae979fa8ccc3e05f8<>res://.godot/imported/roa-music-pixel-story.mp3-9603fc296fe00114feab1fc20c7a0b3d.mp3str::
+::res://samples/::1762397637
 icon.png::CompressedTexture2D::3684880013267173735::1762395723::1762397521::1::::<><><>0<>0<>a37fb46c3863e27516ea07daa24e1d4b<>res://.godot/imported/icon.png-b2ef9b4c3db53ad40d1a132ed05cdfc3.ctex::
-layout.png::CompressedTexture2D::4086562406284766472::1762396228::1762397520::1::::<><><>0<>0<>d8bfa2ae6f4aaa6f2c698decea2b411f<>res://.godot/imported/layout.png-5757bff2c5eb7af5fed660f398101cf7.ctex::
 ::res://scenes/::1762391093
 FX.tscn::PackedScene::-1::1762391093::0::1::::<><><>0<>0<><>::
 Hadouken.tscn::PackedScene::6152354884723924719::1762391093::0::1::::<><><>0<>0<><>::uid://dp0xdrhk8uk4q::::res://scripts/Hadouken.gd<>uid://b4s2hu63ppova::::res://sprites/spritesheet/ataque_especial/ataque_especial 1.png<>uid://d0vnxqrttgyny::::res://sprites/spritesheet/ataque_especial/ataque_especial 2.png<>uid://bk1d6oy16dlc7::::res://sprites/spritesheet/ataque_especial/ataque_especial 3.png<>uid://cea4t1ip27ns4::::res://sprites/spritesheet/ataque_especial/ataque_especial 4.png
@@ -13,8 +12,8 @@ main.tscn::PackedScene::-1::1762391093::0::1::::<><><>0<>0<><>::res://scripts/Ma
 Themes.tscn::PackedScene::6739549921782683010::1762391093::0::1::::<><><>0<>0<><>::
 ::res://scenes/assets/::1762391093
 Hadouken.tscn::PackedScene::2181365360995055440::1762391093::0::1::::<><><>0<>0<><>::uid://dp0xdrhk8uk4q::::res://scripts/Hadouken.gd<>uid://b4s2hu63ppova::::res://sprites/spritesheet/ataque_especial/ataque_especial 1.png<>uid://d0vnxqrttgyny::::res://sprites/spritesheet/ataque_especial/ataque_especial 2.png<>uid://bk1d6oy16dlc7::::res://sprites/spritesheet/ataque_especial/ataque_especial 3.png<>uid://cea4t1ip27ns4::::res://sprites/spritesheet/ataque_especial/ataque_especial 4.png
-::res://scenes/chars/::1762395447
-Ryu.tscn::PackedScene::7314905382204913864::1762395447::0::1::::<><><>0<>0<><>::uid://qa5hr8r1w21h::::res://sprites/spritesheet/fipinho/ataque_especial/fipinho_especial.png<>uid://dy2pngitsvnvs::::res://scripts/Ryu.gd<>uid://dv3gkxngthrhq::::res://sprites/spritesheet/fipinho/ataque_especial/fipinho_preparando.png<>uid://b13oqsuo1vt0g::::res://sprites/spritesheet/fipinho/fipinho_parado.png<>uid://dvne5yusoo383::::res://sprites/spritesheet/fipinho/fipinho_pulando.png<>uid://pcdf7gqq2n2h::::res://sprites/spritesheet/fipinho/ataque_basico/fipinho_ataque_basico.png
+::res://scenes/chars/::1762399755
+Ryu.tscn::PackedScene::7314905382204913864::1762399755::0::1::::<><><>0<>0<><>::uid://qa5hr8r1w21h::::res://sprites/spritesheet/fipinho/ataque_especial/fipinho_especial 2.png<>uid://dy2pngitsvnvs::::res://scripts/Ryu.gd<>uid://dv3gkxngthrhq::::res://sprites/spritesheet/fipinho/ataque_especial/fipinho_especial 1.png<>uid://b13oqsuo1vt0g::::res://sprites/spritesheet/fipinho/fipinho_parado.png<>uid://dvne5yusoo383::::res://sprites/spritesheet/fipinho/fipinho_pulando.png<>uid://c22d2w17scdhn::::res://sprites/spritesheet/fipinho/ataque_basico/ataque_basico 1.png<>uid://b8qrr6aasguu4::::res://sprites/spritesheet/fipinho/ataque_basico/ataque_basico 2.png
 ::res://scenes/stages/::1762391996
 GuileStage.tscn::PackedScene::6324391751086319967::1762391996::0::1::::<><><>0<>0<><>::uid://dnaqkfl6djsfc::::res://sprites/spritesheet/fip-stage/guile-stage.png
 ::res://scripts/::1762392890
@@ -39,8 +38,9 @@ guile-stage.png::CompressedTexture2D::8072706629219517708::1762391093::176239110
 ::res://sprites/spritesheet/fipinho/::1762395530
 fipinho_parado.png::CompressedTexture2D::4270012782984905388::1762391093::1762391103::1::::<><><>0<>0<>35bbd89a786e5119764560a75f0b724e<>res://.godot/imported/fipinho_parado.png-26839a8eae9b59bfdc1286c23c4fa8a4.ctex::
 fipinho_pulando.png::CompressedTexture2D::8660362412362594942::1762391093::1762391103::1::::<><><>0<>0<>86acc24e8a221a53f3b42cc8062b81f1<>res://.godot/imported/fipinho_pulando.png-b3814e8444d3788e9ff154961e459ee8.ctex::
-::res://sprites/spritesheet/fipinho/ataque_basico/::1762395447
-fipinho_ataque_basico.png::CompressedTexture2D::1057154180791885609::1762395413::1762395447::1::::<><><>0<>0<>34b401052c0a162d401d720da4ef827f<>res://.godot/imported/fipinho_ataque_basico.png-214f505f1d657e8fd50d95eb20dcf745.ctex::
-::res://sprites/spritesheet/fipinho/ataque_especial/::1762391103
-fipinho_especial.png::CompressedTexture2D::1124856453232388247::1762391093::1762391103::1::::<><><>0<>0<>5885471931b3951dfc3bee23159f7c58<>res://.godot/imported/fipinho_especial.png-02e6c2973b2a9ba50f4687535b69dfd5.ctex::
-fipinho_preparando.png::CompressedTexture2D::8691413732905113386::1762391093::1762391103::1::::<><><>0<>0<>8eb07e567534f2a347f50cb8e9d6413e<>res://.godot/imported/fipinho_preparando.png-a3fb771256ef40aa9577a4cb1dacf060.ctex::
+::res://sprites/spritesheet/fipinho/ataque_basico/::1762399721
+ataque_basico 1.png::CompressedTexture2D::6723909909543109943::1762399541::1762399573::1::::<><><>0<>0<>31710faa8748a2d1539b66d7a62eb058<>res://.godot/imported/ataque_basico 1.png-c3f18660e547740e801f19cbc13963c4.ctex::
+ataque_basico 2.png::CompressedTexture2D::4736746743434707429::1762399691::1762399721::1::::<><><>0<>0<>6e2217f36e2f387796618c3865654c6b<>res://.godot/imported/ataque_basico 2.png-2fa77876a981d022efe84f64dadadea8.ctex::
+::res://sprites/spritesheet/fipinho/ataque_especial/::1762399755
+fipinho_especial 1.png::CompressedTexture2D::8691413732905113386::1762391093::1762399755::1::::<><><>0<>0<>964236af692b6d1d85872fb6ba250673<>res://.godot/imported/fipinho_especial 1.png-369d261958b125b16f7be526fd52d29e.ctex::
+fipinho_especial 2.png::CompressedTexture2D::1124856453232388247::1762391093::1762399745::1::::<><><>0<>0<>18ded35375ddd22a024962485179f858<>res://.godot/imported/fipinho_especial 2.png-ba9d1d6587ef7c4e8e3d20ace113b454.ctex::
