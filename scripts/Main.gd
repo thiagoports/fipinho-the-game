@@ -8,29 +8,25 @@ var moves = {
 }
 
 func _ready():
-	# Loads the stage
+
 	Global.loadStage(self, "Fipinho")
 	
-	# Loads the player one
 	Global.loadPlayer1( self, "Fipinho", Vector2(192,343))
 
-	# Sequence timer (user for specials)
 	self._config_timer()
 
 func _config_timer():
 	timer = Timer.new()
 	add_child(timer)
 	
-	timer.wait_time = 0.3 # Wait time in seconds
-	timer.one_shot = true # Run timer just one time
+	timer.wait_time = 0.3
+	timer.one_shot = true
 	
 	timer.connect("timeout", Callable(self, "on_timeout"))
 
 func on_timeout():
-	# verify special sequence
 	self._check_sequence( sequence )
 	
-	# Clean the sequence
 	sequence = []
 
 func _add_input_to_sequence( action ):
@@ -45,7 +41,6 @@ func _check_sequence( sequence ):
 			_play_action( move_name )
 
 func _input(event):
-	# Prevent wrong events
 	if not event is InputEventKey:
 		return
 	if not event.is_pressed():
@@ -55,7 +50,7 @@ func _input(event):
 		_add_input_to_sequence("down")
 	elif event.is_action_pressed("ui_right"):
 		_add_input_to_sequence("front")
-	elif event.is_action_pressed("ui_punch"):
+	elif event.is_action_pressed("ataque"):
 		_add_input_to_sequence("punch")
 
 	timer.start()

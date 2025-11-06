@@ -5,18 +5,16 @@ const GRAVITY = 20
 const SPEED = 200
 const JUMP_HEIGHT = -650
 
-var special = null               # Especial em execução
+var special = null               
 var motion = Vector2()
-var hero_direction = 1           # 1 = direita, -1 = esquerda
-var defending = false            # Defesa ativa
-var buffered_special = null      # Ataque guardado no buffer
+var hero_direction = 1           
+var defending = false           
+var buffered_special = null      
 
 func _ready():
 	$Sprite2D.flip_h = false
 
-# Detecta inputs
 func _input(event):
-	# Ataques com buffer
 	if event.is_action_pressed("especial"):
 		if special:
 			buffered_special = "especial"
@@ -28,25 +26,31 @@ func _input(event):
 		else:
 			set_special("ataque")
 	
-	# Defesa
 	if event.is_action_pressed("ui_defesa"):
 		defending = true
 	elif event.is_action_released("ui_defesa"):
 		defending = false
 
-# Define e inicia um especial
 func set_special(special_name):
-	print("## Special Name ##", special_name)
 	special = special_name
 	$Sprite2D.play(special)
 
-# Função do shoryuken
 func ataque():
-	# Aqui você pode instanciar o shoryuken se houver
+	var sfx = AudioStreamPlayer2D.new()
+	sfx.stream = load("res://sfx/ataque.mp3")
+	sfx.position = position  
+	get_parent().add_child(sfx)
+	sfx.play()
+
+	sfx.finished.connect(func(): sfx.queue_free())
 	pass
 
-# Função do hadouken
 func especial():
+	var sfx = AudioStreamPlayer2D.new()
+	sfx.stream = load("res://sfx/especial.mp3")
+	sfx.position = position  
+	get_parent().add_child(sfx)
+	sfx.play()
 	var pre_especial = preload("res://scenes/assets/Especial.tscn")
 	var especial = pre_especial.instantiate()
 
@@ -55,20 +59,18 @@ func especial():
 	especial.position.x = self.position.x + (190 * hero_direction)
 
 	get_parent().add_child(especial)
+	sfx.finished.connect(func(): sfx.queue_free())
 
-# Movimento e física
 func _physics_process(delta):
 	motion.y += GRAVITY
 
-	# Trava movimento durante especial ou defesa
 	if special:
 		motion.x = 0
 		$Sprite2D.play(special)
 	elif defending:
 		motion.x = 0
-		$Sprite2D.play("ui_defesa")  # animação de defesa
+		$Sprite2D.play("ui_defesa") 
 	else:
-		# Movimento normal
 		if Input.is_action_pressed("ui_left"):
 			motion.x = -SPEED
 			hero_direction = -1
@@ -83,7 +85,6 @@ func _physics_process(delta):
 			motion.x = 0
 			$Sprite2D.play("idle")
 
-	# Pular se estiver no chão e não estiver defendendo ou em especial
 	if is_on_floor() and not defending and not special:
 		if Input.is_action_pressed("ui_up"):
 			motion.y = JUMP_HEIGHT
@@ -96,7 +97,6 @@ func _physics_process(delta):
 	move_and_slide()
 	motion = velocity
 
-# Quando a animação termina
 func _on_Sprite_animation_finished():
 	var name = $Sprite2D.get_animation()
 	if name == "especial":
@@ -106,7 +106,6 @@ func _on_Sprite_animation_finished():
 	
 	special = null
 	
-	# Executa qualquer ataque guardado no buffer
 	if buffered_special:
 		set_special(buffered_special)
 		buffered_special = null

@@ -11,6 +11,12 @@ var stages = preload("res://scenes/stages/Unifip.tscn")
 
 func _ready():
 	print("Global settings")
+	var sfx = AudioStreamPlayer2D.new()
+	sfx.stream = load("res://music/trilha_sonora.mp3")
+	add_child(sfx) 
+	sfx.play()
+	sfx.finished.connect(func(): sfx.queue_free())
+
 
 func loadPlayer1(context, character, pos):
 	player1 = players[character].instantiate()
@@ -20,20 +26,11 @@ func loadPlayer1(context, character, pos):
 func loadStage(context, character):
 	var stage = stages.instantiate()
 
-	# Procura pela câmera de forma segura
 	camera = stage.get_node_or_null("Camera3D")
 	if camera:
 		camera.current = true
-	else:
-		push_error("⚠️ 'Camera3D' não encontrada no stage: %s" % character)
 
 	context.add_child(stage)
-
-	var theme = stage.get_node_or_null("Theme")
-	if theme:
-		theme.play()
-	else:
-		push_error("⚠️ 'Theme' não encontrado no stage: %s" % character)
 
 func _process(delta):
 	if player1 and camera:
