@@ -1,6 +1,6 @@
 <div align='center'>
-    <h1>Fipinho the Game 🦉</h1>
-    <img src="icon.png" width="300">
+	<h1>Fipinho the Game 🦉</h1>
+	<img src="samples/icon.png" width="300">
 </div>
 
 <p>Fipinho, o carismático mascote da FIP, ganha vida em um jogo de luta estilo arcade, onde ele
@@ -11,23 +11,21 @@ representam características da faculdade
 </p>
 
 ## Layout do projeto
-<div align='center'>
-    <img align='center' src="layout.png" width="500">
-</div>
+![Layout](https://github.com/user-attachments/assets/97a9683a-fe0b-4ca9-af68-3705fdb19184)
 
 ## Tecnologias Utilizadas
 <ul>
-    <li> Motor de Jogo: Godot
+	<li> Motor de Jogo: Godot
  </li>
-    <li> Arte: Canva (para sprites) e Figma (para ajustes de arte e texturas) </li>
-    <li>Áudio: Audacity e FL Studio (para criar e editar efeitos sonoros e músicas)
+	<li> Arte: Canva (para sprites) e Figma (para ajustes de arte e texturas) </li>
+	<li>Áudio: Audacity e FL Studio (para criar e editar efeitos sonoros e músicas)
  </li>
 </ul>
 
 ## Equipe
 <ul>
-    <li> <a href="https://github.com/henriiqueaze/">Henrique Azevedo</a> </li>
-    <li>  <a href="https://github.com/thiagoports/">Thiago Porto</a> </li>
-    <li>  <a href="https://github.com/ArthurAkil">Arthur Ákill</a> </li>
-    <li>  <a href="https://github.com/joselucasapp">José Lucas</a> </li>
+	<li> <a href="https://github.com/henriiqueaze/">Henrique Azevedo</a> </li>
+	<li>  <a href="https://github.com/thiagoports/">Thiago Porto</a> </li>
+	<li>  <a href="https://github.com/ArthurAkil">Arthur Ákill</a> </li>
+	<li>  <a href="https://github.com/joselucasapp">José Lucas</a> </li>
 </ul>

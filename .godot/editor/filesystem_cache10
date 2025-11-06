@@ -1,14 +1,11 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1762396680
-default_env.tres::Environment::1706502919471925610::1762396220::0::1::::<><><>0<>0<><>::
-icon.png::CompressedTexture2D::3684880013267173735::1762395723::1762396217::1::::<><><>0<>0<>97b05907583c25a109d45e6afbe356d7<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
-layout.png::CompressedTexture2D::4086764475734279478::1762396228::1762396964::1::::<><><>0<>0<>b1610707a02f8da37265bdc259945cc2<>res://.godot/imported/layout.png-a8fc2f1ace9bf76017787d1a53051f77.ctex::
+::res://::1762397518
 README.md::TextFile::-1::1762396922::0::1::::<><><>0<>0<><>::
-::res://music/::1762391103
-guile-theme.mp3::AudioStreamMP3::6332607158165713395::1762391093::1762391103::1::::<><><>0<>0<>831d98a0ee58021b9792567af78eebc2<>res://.godot/imported/guile-theme.mp3-8c4953014d77d780b6e8700357cffb1a.mp3str::
-guile-theme.ogg::AudioStreamOggVorbis::954368731450282977::1762391093::1762391103::1::::<><><>0<>0<>59650da3af6db3a4fa9f5811f91827cd<>res://.godot/imported/guile-theme.ogg-f3fc494c4d44f7291593a003fdc92848.oggvorbisstr::
-ryu-theme.mp3::AudioStreamMP3::4650166039407925938::1762391093::1762391103::1::::<><><>0<>0<>7f56458e2e206065ccf6a3c831cd9313<>res://.godot/imported/ryu-theme.mp3-4a48b23979f5348ed209fff3836ac834.mp3str::
-ryu-theme.ogg::AudioStreamOggVorbis::2596461569818067111::1762391093::1762391103::1::::<><><>0<>0<>7bde453441f967b920ee9179821ddeb9<>res://.godot/imported/ryu-theme.ogg-15866e3f9302466ea3760fbbaedce084.oggvorbisstr::
+::res://music/::1762397296
+roa-music-pixel-story.mp3::AudioStreamMP3::2170044744152450042::1762397245::1762397260::1::::<><><>0<>0<>19548da2800c9016a95439630e1b1688<>res://.godot/imported/roa-music-pixel-story.mp3-9603fc296fe00114feab1fc20c7a0b3d.mp3str::
+::res://samples/::1762397518
+icon.png::CompressedTexture2D::3684880013267173735::1762395723::1762397521::1::::<><><>0<>0<>a37fb46c3863e27516ea07daa24e1d4b<>res://.godot/imported/icon.png-b2ef9b4c3db53ad40d1a132ed05cdfc3.ctex::
+layout.png::CompressedTexture2D::4086562406284766472::1762396228::1762397520::1::::<><><>0<>0<>d8bfa2ae6f4aaa6f2c698decea2b411f<>res://.godot/imported/layout.png-5757bff2c5eb7af5fed660f398101cf7.ctex::
 ::res://scenes/::1762391093
 FX.tscn::PackedScene::-1::1762391093::0::1::::<><><>0<>0<><>::
 Hadouken.tscn::PackedScene::6152354884723924719::1762391093::0::1::::<><><>0<>0<><>::uid://dp0xdrhk8uk4q::::res://scripts/Hadouken.gd<>uid://b4s2hu63ppova::::res://sprites/spritesheet/ataque_especial/ataque_especial 1.png<>uid://d0vnxqrttgyny::::res://sprites/spritesheet/ataque_especial/ataque_especial 2.png<>uid://bk1d6oy16dlc7::::res://sprites/spritesheet/ataque_especial/ataque_especial 3.png<>uid://cea4t1ip27ns4::::res://sprites/spritesheet/ataque_especial/ataque_especial 4.png
