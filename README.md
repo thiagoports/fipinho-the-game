@@ -1,6 +1,6 @@
 <div align='center'>
 	<h1>Fipinho the Game 🦉</h1>
-	<img src="samples/icon.png" width="300">
+	<img src="sprites/menu/logo.png" width="300">
 </div>
 
 <p>Fipinho, o carismático mascote da FIP, ganha vida em um jogo de luta estilo arcade, onde ele

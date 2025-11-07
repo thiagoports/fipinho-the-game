@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwdt2qg7fe01x"]
+
+[ext_resource type="Texture2D" uid="uid://dnaqkfl6djsfc" path="res://sprites/fip-stage/guile-stage.png" id="1_66lur"]
+
+[node name="Stage" type="Node"]
+
+[node name="Background" type="ParallaxBackground" parent="."]
+
+[node name="Layer" type="ParallaxLayer" parent="Background"]
+
+[node name="Sprite" type="Sprite2D" parent="Background/Layer"]
+position = Vector2(520, 261)
+scale = Vector2(0.8276935, 0.90406245)
+texture = ExtResource("1_66lur")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(512, 300)
+limit_left = 0
+limit_right = 1850
+limit_bottom = 600

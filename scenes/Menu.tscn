@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://kt4ykr1hqbc8"]
+
+[ext_resource type="Script" uid="uid://cr55dsw2d7o6p" path="res://scripts/Menu.gd" id="1_jmdev"]
+[ext_resource type="Texture2D" uid="uid://8er55l4pm31q" path="res://sprites/menu/cenario.png" id="1_xdvgc"]
+[ext_resource type="Texture2D" uid="uid://b0xswwp4eoxdi" path="res://sprites/menu/logo.png" id="2_upctu"]
+[ext_resource type="Texture2D" uid="uid://brgybo24gbdsw" path="res://sprites/menu/lettering.png" id="3_11y2r"]
+[ext_resource type="Texture2D" uid="uid://cqjxow8ii1puh" path="res://sprites/menu/jogar.png" id="4_o0tnf"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1021.4626
+offset_bottom = -552.44403
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8.863359, 6.718577)
+script = ExtResource("1_jmdev")
+
+[node name="Cenario" type="Sprite2D" parent="."]
+position = Vector2(65.88924, 49.266384)
+scale = Vector2(0.04159236, 0.05609852)
+texture = ExtResource("1_xdvgc")
+
+[node name="Jogar" type="TextureButton" parent="Cenario"]
+offset_left = -404.17963
+offset_top = 451.04535
+offset_right = 262.82037
+offset_bottom = 741.0454
+texture_normal = ExtResource("4_o0tnf")
+stretch_mode = 0
+
+[node name="Logo" type="Sprite2D" parent="Cenario"]
+position = Vector2(-62.39026, 47.75775)
+scale = Vector2(0.9620969, 0.93775415)
+texture = ExtResource("2_upctu")
+
+[node name="Lettering" type="TextureRect" parent="Cenario"]
+offset_left = -550.6607
+offset_top = -607.5846
+offset_right = 424.99152
+offset_bottom = -238.78864
+texture = ExtResource("3_11y2r")
+expand_mode = 1

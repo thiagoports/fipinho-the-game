@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqf6uqjarhq5e"]
-
-[sub_resource type="AudioStreamOggVorbis" id="1"]
-
-[node name="Themes" type="Node2D"]
-
-[node name="ryu" type="AudioStreamPlayer" parent="."]
-stream = SubResource("1")
