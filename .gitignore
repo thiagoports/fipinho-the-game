@@ -1,0 +1,55 @@
+# ===== Godot =====
+# Import folder (imported resource cache) — gerado automaticamente
+.import/
+
+# Editor local settings (machine-specific). Ignore se não quiser commitar settings do editor.
+.godot/
+
+# Exported builds (se você outputa builds na pasta do projeto)
+export/
+
+# Arquivos temporários / de importação gerados
+*.import
+*.converted.*
+*.imported.*
+
+# ===== Mono / C# (se usar) =====
+.mono/
+*.csproj
+*.sln
+*.userprefs
+/bin/
+obj/
+
+# ===== Build / export artifacts =====
+*.pck
+*.apk
+*.aab
+*.exe
+*.dll
+*.zip
+*.tar.gz
+*.7z
+
+# ===== Editor/IDE =====
+.vscode/
+.idea/
+*.iml
+.vs/
+
+# ===== OS files =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Python / caches =====
+__pycache__/
+*.py[cod]
+
+# ===== Outros temporários e backups =====
+*~ 
+*.tmp
+*.temp
+*.backup
+.cache/
+logs/

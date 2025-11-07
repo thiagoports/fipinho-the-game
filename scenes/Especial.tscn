@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://byccfe1ku2bgx"]
 
 [ext_resource type="Script" uid="uid://dp0xdrhk8uk4q" path="res://scripts/Especial.gd" id="1_axqph"]
-[ext_resource type="Texture2D" uid="uid://b4s2hu63ppova" path="res://sprites/spritesheet/ataque_especial/ataque_especial 1.png" id="2_2ojgf"]
-[ext_resource type="Texture2D" uid="uid://d0vnxqrttgyny" path="res://sprites/spritesheet/ataque_especial/ataque_especial 2.png" id="3_7lotl"]
-[ext_resource type="Texture2D" uid="uid://bk1d6oy16dlc7" path="res://sprites/spritesheet/ataque_especial/ataque_especial 3.png" id="4_w480h"]
-[ext_resource type="Texture2D" uid="uid://cea4t1ip27ns4" path="res://sprites/spritesheet/ataque_especial/ataque_especial 4.png" id="5_8je0o"]
+[ext_resource type="Texture2D" uid="uid://b4s2hu63ppova" path="res://sprites/ataque_especial/ataque_especial 1.png" id="2_2ojgf"]
+[ext_resource type="Texture2D" uid="uid://d0vnxqrttgyny" path="res://sprites/ataque_especial/ataque_especial 2.png" id="3_7lotl"]
+[ext_resource type="Texture2D" uid="uid://bk1d6oy16dlc7" path="res://sprites/ataque_especial/ataque_especial 3.png" id="4_w480h"]
+[ext_resource type="Texture2D" uid="uid://cea4t1ip27ns4" path="res://sprites/ataque_especial/ataque_especial 4.png" id="5_8je0o"]
 
 [sub_resource type="SpriteFrames" id="5"]
 animations = [{
@@ -21,13 +21,13 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_8je0o")
 }],
-"loop": false,
+"loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="6"]
-radius = 40.610092
+radius = 41.3825
 
 [node name="Especial" type="CharacterBody2D"]
 script = ExtResource("1_axqph")
@@ -36,11 +36,9 @@ script = ExtResource("1_axqph")
 modulate = Color(1, 1, 1, 0.827451)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("5")
+autoplay = "default"
+frame_progress = 1.0
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(13.8919, 1.5892)
 shape = SubResource("6")
-
-[node name="Notifier" type="VisibleOnScreenNotifier2D" parent="."]
-
-[connection signal="screen_exited" from="Notifier" to="." method="_on_Notifier_screen_exited"]

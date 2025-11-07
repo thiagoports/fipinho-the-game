@@ -14,6 +14,10 @@ config/name="Fipinho the game"
 run/main_scene="uid://kt4ykr1hqbc8"
 config/features=PackedStringArray("4.5")
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 Global="*res://scripts/Global.gd"

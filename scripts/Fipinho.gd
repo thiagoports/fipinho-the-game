@@ -50,7 +50,7 @@ func especial():
 	sfx.position = position
 	get_parent().add_child(sfx)
 	sfx.play()
-	var pre_especial = preload("res://scenes/assets/Especial.tscn")
+	var pre_especial = preload("res://scenes/Especial.tscn")
 	var especial_inst = pre_especial.instantiate()
 
 	especial_inst.direction = direcao_heroi

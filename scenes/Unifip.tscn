@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwdt2qg7fe01x"]
+[gd_scene load_steps=2 format=3 uid="uid://cwdt2qg7fe01x"]
 
-[ext_resource type="Texture2D" uid="uid://dnaqkfl6djsfc" path="res://sprites/spritesheet/fip-stage/guile-stage.png" id="1_66lur"]
-
-[sub_resource type="AudioStreamOggVorbis" id="1"]
+[ext_resource type="Texture2D" uid="uid://dnaqkfl6djsfc" path="res://sprites/fip-stage/guile-stage.png" id="1_66lur"]
 
 [node name="Stage" type="Node"]
 
@@ -14,9 +12,6 @@
 position = Vector2(520, 261)
 scale = Vector2(0.8276935, 0.90406245)
 texture = ExtResource("1_66lur")
-
-[node name="Theme" type="AudioStreamPlayer" parent="."]
-stream = SubResource("1")
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(512, 300)

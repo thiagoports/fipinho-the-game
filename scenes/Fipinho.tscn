@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://dchnom5uncbc7"]
 
 [ext_resource type="Script" uid="uid://dy2pngitsvnvs" path="res://scripts/Fipinho.gd" id="1_by55x"]
-[ext_resource type="Texture2D" uid="uid://dv3gkxngthrhq" path="res://sprites/spritesheet/fipinho/ataque_especial/fipinho_especial 1.png" id="2_w22af"]
-[ext_resource type="Texture2D" uid="uid://qa5hr8r1w21h" path="res://sprites/spritesheet/fipinho/ataque_especial/fipinho_especial 2.png" id="3_uwale"]
-[ext_resource type="Texture2D" uid="uid://b13oqsuo1vt0g" path="res://sprites/spritesheet/fipinho/fipinho_parado.png" id="4_ilrth"]
-[ext_resource type="Texture2D" uid="uid://dvne5yusoo383" path="res://sprites/spritesheet/fipinho/fipinho_pulando.png" id="5_1hwhu"]
-[ext_resource type="Texture2D" uid="uid://c22d2w17scdhn" path="res://sprites/spritesheet/fipinho/ataque_basico/ataque_basico 1.png" id="6_pk3sj"]
-[ext_resource type="Texture2D" uid="uid://dsnbilicg0wkl" path="res://sprites/spritesheet/fipinho/ataque_basico/ataque_basico 2.png" id="7_h7iix"]
+[ext_resource type="Texture2D" uid="uid://dv3gkxngthrhq" path="res://sprites/fipinho/ataque_especial/fipinho_especial 1.png" id="2_w22af"]
+[ext_resource type="Texture2D" uid="uid://qa5hr8r1w21h" path="res://sprites/fipinho/ataque_especial/fipinho_especial 2.png" id="3_uwale"]
+[ext_resource type="Texture2D" uid="uid://b13oqsuo1vt0g" path="res://sprites/fipinho/fipinho_parado.png" id="4_ilrth"]
+[ext_resource type="Texture2D" uid="uid://dvne5yusoo383" path="res://sprites/fipinho/fipinho_pulando.png" id="5_1hwhu"]
+[ext_resource type="Texture2D" uid="uid://c22d2w17scdhn" path="res://sprites/fipinho/ataque_basico/ataque_basico 1.png" id="6_pk3sj"]
+[ext_resource type="Texture2D" uid="uid://dsnbilicg0wkl" path="res://sprites/fipinho/ataque_basico/ataque_basico 2.png" id="7_h7iix"]
 
 [sub_resource type="SpriteFrames" id="23"]
 animations = [{
