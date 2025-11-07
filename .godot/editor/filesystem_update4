@@ -1,7 +1,7 @@
+res://scenes/Menu.tscn
+res://scripts/Menu.gd
+res://scenes/assets/Especial.tscn
 res://scenes/chars/Fipinho.tscn
-res://scripts/Fipinho.gd
-res://scripts/Global.gd
-res://scripts/Main.gd
-res://scenes/main.tscn
-res://scripts/Especial.gd
+res://scenes/Especial.tscn
+res://scenes/Main.tscn
 res://README.md

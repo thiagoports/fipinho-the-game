@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctwinekscx70f"]
+[gd_scene load_steps=8 format=3 uid="uid://byccfe1ku2bgx"]
 
 [ext_resource type="Script" uid="uid://dp0xdrhk8uk4q" path="res://scripts/Especial.gd" id="1_axqph"]
 [ext_resource type="Texture2D" uid="uid://b4s2hu63ppova" path="res://sprites/spritesheet/ataque_especial/ataque_especial 1.png" id="2_2ojgf"]
