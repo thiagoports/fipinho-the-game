@@ -2,9 +2,11 @@ extends Node
 
 var camera = null
 var jogador1 = null
+var jogador2 = null
 
 var jogadores = {
 	"Fipinho": preload("res://scenes/Fipinho.tscn"),
+	"Duolingo": preload("res://scenes/Duolingo.tscn"),
 }
 
 var palcos = preload("res://scenes/Unifip.tscn")
@@ -21,6 +23,11 @@ func loadPlayer1(contexto, personagem, pos):
 	jogador1 = jogadores[personagem].instantiate()
 	jogador1.position = pos
 	contexto.add_child(jogador1)
+	
+func loadPlayer2(contexto, personagem, pos):	
+	jogador2 = jogadores[personagem].instantiate()
+	jogador2.position = pos
+	contexto.add_child(jogador2)
 
 func loadStage(contexto, personagem):
 	var palco = palcos.instantiate()

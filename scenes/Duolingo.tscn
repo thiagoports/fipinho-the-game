@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://bugynkapvm8xg"]
+
+[ext_resource type="Script" uid="uid://dy2pngitsvnvs" path="res://scripts/Fipinho.gd" id="1_by55x"]
+[ext_resource type="Texture2D" uid="uid://dv3gkxngthrhq" path="res://sprites/fipinho/ataque_especial/fipinho_especial 1.png" id="2_w22af"]
+[ext_resource type="Texture2D" uid="uid://qa5hr8r1w21h" path="res://sprites/fipinho/ataque_especial/fipinho_especial 2.png" id="3_uwale"]
+[ext_resource type="Texture2D" uid="uid://b13oqsuo1vt0g" path="res://sprites/fipinho/fipinho_parado.png" id="4_ilrth"]
+[ext_resource type="Texture2D" uid="uid://dvne5yusoo383" path="res://sprites/fipinho/fipinho_pulando.png" id="5_1hwhu"]
+[ext_resource type="Texture2D" uid="uid://c22d2w17scdhn" path="res://sprites/fipinho/ataque_basico/ataque_basico 1.png" id="6_pk3sj"]
+[ext_resource type="Texture2D" uid="uid://dsnbilicg0wkl" path="res://sprites/fipinho/ataque_basico/ataque_basico 2.png" id="7_h7iix"]
+
+[sub_resource type="SpriteFrames" id="23"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_pk3sj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h7iix")
+}],
+"loop": false,
+"name": &"ataque",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w22af")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uwale")
+}],
+"loop": false,
+"name": &"especial",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ilrth")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1hwhu")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w22af")
+}],
+"loop": false,
+"name": &"ui_defesa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ilrth")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="24"]
+size = Vector2(161.45, 155.017)
+
+[node name="Fipinho" type="CharacterBody2D"]
+script = ExtResource("1_by55x")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(21, 134.00003)
+scale = Vector2(0.9786711, 0.9786708)
+sprite_frames = SubResource("23")
+animation = &"ataque"
+offset = Vector2(0, -60)
+
+[node name="Body" type="CollisionShape2D" parent="."]
+position = Vector2(18, 74)
+shape = SubResource("24")
+
+[connection signal="animation_finished" from="Sprite2D" to="." method="_on_Sprite_animation_finished"]

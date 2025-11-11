@@ -10,6 +10,7 @@ var movimentos = {
 func _ready():
 	Global.loadStage(self, "Fipinho")
 	Global.loadPlayer1(self, "Fipinho", Vector2(192,343))
+	Global.loadPlayer2(self, "Duolingo", Vector2(800,343))
 	self._config_timer()
 
 func _config_timer():
@@ -33,18 +34,5 @@ func _check_sequence(sequencia_local):
 	for nome_movimento in movimentos.keys():
 		if sequencia_local == movimentos[nome_movimento]:
 			_play_action(nome_movimento)
-
-func _input(event):
-	if not event is InputEventKey:
-		return
-	if not event.is_pressed():
-		return
-
-	if event.is_action_pressed("ui_down"):
-		_add_input_to_sequence("baixo")
-	elif event.is_action_pressed("ui_right"):
-		_add_input_to_sequence("frente")
-	elif event.is_action_pressed("ataque"):
-		_add_input_to_sequence("soco")
 
 	temporizador.start()
