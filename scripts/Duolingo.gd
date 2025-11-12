@@ -1,88 +1,64 @@
-# Duolingo.gd (Player 2)
 extends CharacterBody2D
 
 const CIMA = Vector2(0, -1)
 const GRAVIDADE = 20
 const VELOCIDADE = 200
-const ALTURA_PULO = -650
+const ALTURA_PULO = -550 
 
-var especial_ativa = null
-var movimento = Vector2()
-var direcao_heroi = -1
+var especial_ativa = ""
+var movimento = Vector2.ZERO
+var direcao = -1
 var defendendo = false
-var especial_armazenada = null
 
 func _ready():
 	if $Sprite2D:
 		$Sprite2D.flip_h = true
 
 func _physics_process(delta):
-	movimento.y += GRAVIDADE
+	var horiz = int(Input.is_action_pressed("p2_direita")) - int(Input.is_action_pressed("p2_esquerda"))
+	defendendo = Input.is_action_pressed("p2_defesa")
 
-	# Prioridade: especial > defesa > movimento
-	if especial_ativa:
-		movimento.x = 0
-		if $Sprite2D:
-			$Sprite2D.play(especial_ativa)
-	elif Input.is_action_pressed("p2_defesa"):
-		defendendo = true
-		movimento.x = 0
-		if $Sprite2D:
-			$Sprite2D.play("ui_defesa")
+	movimento.x = horiz * VELOCIDADE
+	if horiz != 0:
+		direcao = horiz
+		$Sprite2D.flip_h = direcao == -1
+
+	if is_on_floor() and not defendendo and especial_ativa == "" and Input.is_action_just_pressed("p2_cima"):
+		movimento.y = ALTURA_PULO
+
+	if movimento.y < 0:
+		if Input.is_action_pressed("p2_cima"):
+			movimento.y += GRAVIDADE * 0.6
+		else:
+			movimento.y += GRAVIDADE * 1.6
 	else:
-		defendendo = false
-		var left = Input.is_action_pressed("p2_esquerda")
-		var right = Input.is_action_pressed("p2_direita")
+		movimento.y += GRAVIDADE
 
-		if left and not right:
-			movimento.x = -VELOCIDADE
-			direcao_heroi = -1
-			if $Sprite2D:
-				$Sprite2D.flip_h = true
-				$Sprite2D.play("walking")
-		elif right and not left:
-			movimento.x = VELOCIDADE
-			direcao_heroi = 1
-			if $Sprite2D:
-				$Sprite2D.flip_h = false
-				$Sprite2D.play("walking")
-		else:
-			movimento.x = 0
-			if $Sprite2D:
-				$Sprite2D.play("idle")
+	if Input.is_action_just_pressed("p2_ataque") and especial_ativa == "":
+		_set_special("ataque")
+	if Input.is_action_just_pressed("p2_especial") and especial_ativa == "":
+		_set_special("especial")
 
-	# pulo
-	if is_on_floor() and not defendendo and not especial_ativa:
-		if Input.is_action_just_pressed("p2_cima"):
-			movimento.y = ALTURA_PULO
-	else:
-		if not defendendo and not especial_ativa:
-			if $Sprite2D:
-				$Sprite2D.play("jump")
+	var anim = "idle"
+	if especial_ativa != "":
+		anim = especial_ativa
+	elif defendendo:
+		anim = "ui_defesa"
+	elif not is_on_floor():
+		anim = "jump"
+	elif horiz != 0:
+		anim = "walking"
+	$Sprite2D.play(anim)
 
-	# ataques (gatilho)
-	if Input.is_action_just_pressed("p2_ataque"):
-		if especial_ativa:
-			especial_armazenada = "ataque"
-		else:
-			set_special("ataque")
-
-	if Input.is_action_just_pressed("p2_especial"):
-		if especial_ativa:
-			especial_armazenada = "especial"
-		else:
-			set_special("especial")
-
-	# aplicar movimento
 	set_velocity(movimento)
 	set_up_direction(CIMA)
 	move_and_slide()
 	movimento = velocity
 
-func set_special(nome_especial):
-	especial_ativa = nome_especial
+func _set_special(nome):
+	especial_ativa = nome
 	if $Sprite2D:
-		$Sprite2D.play(nome_especial)
+		$Sprite2D.play(nome)
 
 func ataque():
 	var sfx = AudioStreamPlayer2D.new()
@@ -99,24 +75,17 @@ func especial():
 	get_parent().add_child(sfx)
 	sfx.play()
 
-	var pre_especial = preload("res://scenes/Especial.tscn")
-	var especial_inst = pre_especial.instantiate()
-	especial_inst.direction = direcao_heroi
-	especial_inst.position.y = position.y - -50
-	especial_inst.position.x = position.x + (190 * direcao_heroi)
-	get_parent().add_child(especial_inst)
+	var pre = preload("res://scenes/Especial.tscn")
+	var inst = pre.instantiate()
+	inst.direction = direcao
+	inst.position = Vector2(position.x + (190 * direcao), position.y - -50)
+	get_parent().add_child(inst)
 	sfx.finished.connect(func(): sfx.queue_free())
 
 func _on_Sprite_animation_finished():
-	if not $Sprite2D:
-		return
 	var nome = $Sprite2D.get_animation()
 	if nome == "especial":
 		especial()
 	elif nome == "ataque":
 		ataque()
-
-	especial_ativa = null
-	if especial_armazenada:
-		set_special(especial_armazenada)
-		especial_armazenada = null
+	especial_ativa = ""
