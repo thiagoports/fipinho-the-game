@@ -1,17 +1,25 @@
 extends CharacterBody2D
 
+signal levou_dano(valor)
+
 const CIMA = Vector2(0, -1)
 const GRAVIDADE = 20
 const VELOCIDADE = 200
-const ALTURA_PULO = -550  
+const ALTURA_PULO = -550
 
 var especial_ativa = ""
 var movimento = Vector2.ZERO
 var direcao = 1
 var defendendo = false
 
+var vida: int = 100
+var dano_ataque: int = 10
+var dano_especial: int = 25
+
 func _ready():
 	$Sprite2D.flip_h = false
+	add_to_group("player1")
+	add_to_group("enemies")
 
 func _physics_process(delta):
 	var horiz = int(Input.is_action_pressed("p1_direita")) - int(Input.is_action_pressed("p1_esquerda"))
@@ -66,6 +74,12 @@ func ataque():
 	sfx.play()
 	sfx.finished.connect(func(): sfx.queue_free())
 
+	var area = get_node_or_null("Area2D")
+	if area:
+		for corpo in area.get_overlapping_bodies():
+			if corpo != self and corpo.is_in_group("player2"):
+				corpo.tomar_dano(dano_ataque)
+
 func especial():
 	var sfx = AudioStreamPlayer2D.new()
 	sfx.stream = load("res://sfx/especial.mp3")
@@ -75,10 +89,47 @@ func especial():
 
 	var pre = preload("res://scenes/Especial.tscn")
 	var inst = pre.instantiate()
+	# configura o projétil
 	inst.direction = direcao
+	inst.dano = dano_especial
+	inst.shooter = self
 	inst.position = Vector2(position.x + (190 * direcao), position.y - -50)
 	get_parent().add_child(inst)
+
 	sfx.finished.connect(func(): sfx.queue_free())
+
+func tomar_dano(valor):
+	# aplica redução se estiver defendendo
+	var dano_final = int(valor)
+	if defendendo:
+		dano_final = int(dano_final * 0.5)
+
+	# subtrai vida local e limita entre 0 e máximo (se você tiver max, use ele)
+	vida = max(vida - dano_final, 0)
+	print("%s vida agora: %d (reduziu %d)" % [name, vida, dano_final])
+
+	# emite sinal para a Arena/HUD atualizar
+	emit_signal("levou_dano", dano_final)
+
+	# efeito de hit simples (piscar sprite)
+	if $Sprite2D:
+		$Sprite2D.modulate = Color(1,0.6,0.6) # leve flash avermelhado
+		await get_tree().create_timer(0.10).timeout
+		$Sprite2D.modulate = Color(1,1,1)
+
+	# som de hit (opcional)
+	if FileAccess.file_exists("res://sfx/hit.mp3"):
+		var hit = AudioStreamPlayer2D.new()
+		hit.stream = load("res://sfx/hit.mp3")
+		hit.position = position
+		get_parent().add_child(hit)
+		hit.play()
+		hit.finished.connect(func(): hit.queue_free())
+
+	# morrer
+	if vida <= 0:
+		_morrer()
+
 
 func _on_Sprite_animation_finished():
 	var nome = $Sprite2D.get_animation()
@@ -87,3 +138,10 @@ func _on_Sprite_animation_finished():
 	elif nome == "ataque":
 		ataque()
 	especial_ativa = ""
+	
+	
+func _morrer():
+	if $Sprite2D and $Sprite2D.has_animation("morto"):
+		$Sprite2D.play("death")
+	set_physics_process(false)
+	print("%s derrubado!" % name)

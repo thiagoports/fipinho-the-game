@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bugynkapvm8xg"]
+[gd_scene load_steps=11 format=3 uid="uid://bugynkapvm8xg"]
 
 [ext_resource type="Script" uid="uid://bkpxhuapyld75" path="res://scripts/Duolingo.gd" id="1_boetu"]
 [ext_resource type="Texture2D" uid="uid://dv3gkxngthrhq" path="res://sprites/fipinho/ataque_especial/fipinho_especial 1.png" id="2_w22af"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dvne5yusoo383" path="res://sprites/fipinho/fipinho_pulando.png" id="5_1hwhu"]
 [ext_resource type="Texture2D" uid="uid://c22d2w17scdhn" path="res://sprites/fipinho/ataque_basico/ataque_basico 1.png" id="6_pk3sj"]
 [ext_resource type="Texture2D" uid="uid://dsnbilicg0wkl" path="res://sprites/fipinho/ataque_basico/ataque_basico 2.png" id="7_h7iix"]
+[ext_resource type="Texture2D" uid="uid://dlvyg2lgfrgi8" path="res://sprites/fipinho/fipinho_morto.png" id="8_5ql46"]
 
 [sub_resource type="SpriteFrames" id="23"]
 animations = [{
@@ -50,6 +51,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("8_5ql46")
+}],
+"loop": true,
+"name": &"morto",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_w22af")
 }],
 "loop": false,
@@ -75,7 +84,7 @@ script = ExtResource("1_boetu")
 position = Vector2(21, 134.00003)
 scale = Vector2(0.9786711, 0.9786708)
 sprite_frames = SubResource("23")
-animation = &"ataque"
+animation = &"morto"
 offset = Vector2(0, -60)
 
 [node name="Body" type="CollisionShape2D" parent="."]

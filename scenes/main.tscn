@@ -1,16 +1,79 @@
-[gd_scene load_steps=3 format=3 uid="uid://3n6ky58srm17"]
+[gd_scene load_steps=11 format=3 uid="uid://3n6ky58srm17"]
 
+[ext_resource type="PackedScene" uid="uid://dchnom5uncbc7" path="res://scenes/Fipinho.tscn" id="2_0bbpv"]
 [ext_resource type="Script" uid="uid://wtlro8rrltaw" path="res://scripts/Main.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://bugynkapvm8xg" path="res://scenes/Duolingo.tscn" id="3_rarhs"]
+[ext_resource type="Texture2D" uid="uid://b7ofa2utgd5b3" path="res://sprites/hud/barra_vida.png" id="4_c01mt"]
+[ext_resource type="Texture2D" uid="uid://byfqw3bc71ee8" path="res://sprites/hud/barra_vida_fipinho.png" id="5_nxtc6"]
+[ext_resource type="Texture2D" uid="uid://csyc1p1ppldls" path="res://sprites/hud/barra_vida_duolingo.png" id="6_jlsqs"]
+[ext_resource type="Texture2D" uid="uid://5t0i8oas15iu" path="res://sprites/hud/fipinho_logo.png" id="7_nxtc6"]
+[ext_resource type="Texture2D" uid="uid://ktfeh286p0b7" path="res://sprites/hud/duolingo_logo.png" id="8_jlsqs"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(4040.8, 68.377)
+size = Vector2(1242, 68.377)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bbpv"]
+size = Vector2(25.099976, 559.2971)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("3")
 
-[node name="Chao" type="StaticBody2D" parent="."]
+[node name="Colisoes_cenario" type="StaticBody2D" parent="."]
 position = Vector2(-6.36395, 14.8493)
 
-[node name="Colisao" type="CollisionShape2D" parent="Chao"]
-position = Vector2(645.809, 591.991)
+[node name="Colisao" type="CollisionShape2D" parent="Colisoes_cenario"]
+position = Vector2(594.364, 591.991)
 shape = SubResource("1")
+
+[node name="Parede_esquerda" type="CollisionShape2D" parent="Colisoes_cenario"]
+position = Vector2(1195.3639, 279.1507)
+shape = SubResource("RectangleShape2D_0bbpv")
+
+[node name="Parede_direita" type="CollisionShape2D" parent="Colisoes_cenario"]
+position = Vector2(-29.636051, 271.1507)
+shape = SubResource("RectangleShape2D_0bbpv")
+
+[node name="Fipinho" parent="." groups=["enemies", "player1"] instance=ExtResource("2_0bbpv")]
+position = Vector2(156, 417)
+
+[node name="Duolingo" parent="." groups=["enemies", "player2"] instance=ExtResource("3_rarhs")]
+position = Vector2(945, 415)
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Vida_Fipinho" type="TextureProgressBar" parent="HUD"]
+layout_mode = 1
+offset_left = 30.0
+offset_top = 16.0
+offset_right = 430.0
+offset_bottom = 77.0
+value = 20.0
+nine_patch_stretch = true
+texture_over = ExtResource("4_c01mt")
+texture_progress = ExtResource("5_nxtc6")
+
+[node name="Logo_fipinho" type="Sprite2D" parent="HUD/Vida_Fipinho"]
+position = Vector2(401, 32)
+scale = Vector2(0.2177735, 0.2177735)
+texture = ExtResource("7_nxtc6")
+
+[node name="Vida_Duolingo" type="TextureProgressBar" parent="HUD"]
+layout_mode = 1
+offset_left = 720.0
+offset_top = 16.0
+offset_right = 1120.0
+offset_bottom = 77.0
+value = 20.0
+fill_mode = 1
+nine_patch_stretch = true
+texture_over = ExtResource("4_c01mt")
+texture_progress = ExtResource("6_jlsqs")
+
+[node name="Logo_duolingo" type="Sprite2D" parent="HUD/Vida_Duolingo"]
+position = Vector2(-20, 29)
+scale = Vector2(0.21630858, 0.21630858)
+texture = ExtResource("8_jlsqs")
