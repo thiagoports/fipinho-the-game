@@ -16,13 +16,10 @@ var vida_p1 = vida_p1_max
 var vida_p2 = vida_p2_max
 
 func _ready():
-	# Carrega palco (se necessário)
 	Global.loadStage(self, "Unifip")
 	_config_timer()
-	# conecta sinais MAS espera os nós dos jogadores existirem
 	_conectar_sinais_dano()
 
-# --- helper para checar se um object tem uma propriedade ---
 func _has_prop(obj: Object, name: String) -> bool:
 	if not obj:
 		return false
@@ -31,7 +28,6 @@ func _has_prop(obj: Object, name: String) -> bool:
 			return true
 	return false
 
-# === CONFIG TIMER ===
 func _config_timer():
 	temporizador = Timer.new()
 	add_child(temporizador)
@@ -39,7 +35,6 @@ func _config_timer():
 	temporizador.one_shot = true
 	temporizador.connect("timeout", Callable(self, "on_timeout"))
 
-# === SEQUÊNCIA DE AÇÕES ===
 func on_timeout():
 	_check_sequence(sequencia)
 	sequencia = []
@@ -57,24 +52,19 @@ func _check_sequence(sequencia_local):
 			_play_action(nome_movimento)
 	temporizador.start()
 
-# === CONEXÃO DE SINAIS DE DANO (AGUARDANDO INSTÂNCIAS) ===
 func _conectar_sinais_dano() -> void:
-	# aguarda até as instâncias dos jogadores existirem como filhos (se forem instanciadas por Global)
 	var attempts = 0
 	while (not has_node("Fipinho") or not has_node("Duolingo")) and attempts < 120:
 		attempts += 1
 		await get_tree().process_frame
 
-	# avisa se não encontrou (mas continua tentando conectar parcialmente)
 	if not has_node("Fipinho") or not has_node("Duolingo"):
 		push_warning("Jogadores não encontrados automaticamente — verifique se os nós 'Fipinho' e 'Duolingo' existem como filhos.")
 
-	# conecta e lê vida inicial com segurança
 	if has_node("Fipinho"):
 		var f = $Fipinho
 		if f.has_signal("levou_dano"):
 			f.connect("levou_dano", Callable(self, "_on_fipinho_levou_dano"))
-		# checar se a propriedade 'vida' existe antes de usar
 		if _has_prop(f, "vida"):
 			vida_p1_max = int(f.get("vida"))
 			vida_p1 = vida_p1_max
@@ -87,7 +77,6 @@ func _conectar_sinais_dano() -> void:
 			vida_p2_max = int(d.get("vida"))
 			vida_p2 = vida_p2_max
 
-	# se houver HUD com método setup (opcional), inicializa
 	if has_node("HUD"):
 		var hud = $HUD
 		if hud.has_method("setup"):
@@ -95,10 +84,8 @@ func _conectar_sinais_dano() -> void:
 
 	_atualizar_hud()
 
-# === QUANDO UM JOGADOR LEVA DANO ===
 func _on_fipinho_levou_dano(valor):
 	vida_p1 = clamp(vida_p1 - int(valor), 0, vida_p1_max)
-	# usa HUD se disponível (animação)
 	if has_node("HUD") and $HUD.has_method("set_health_p1"):
 		$HUD.set_health_p1(vida_p1)
 	else:
@@ -119,7 +106,6 @@ func _verificar_vencedor():
 	elif vida_p2 <= 0:
 		print("Fipinho venceu!")
 
-# === ATUALIZA HUD (fallback sem animação) ===
 func _atualizar_hud():
 	if vida_p1_barra:
 		vida_p1_barra.max_value = vida_p1_max
