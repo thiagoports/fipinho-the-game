@@ -1,16 +1,24 @@
 [gd_scene load_steps=11 format=3 uid="uid://bugynkapvm8xg"]
 
 [ext_resource type="Script" uid="uid://bkpxhuapyld75" path="res://scripts/Duolingo.gd" id="1_boetu"]
-[ext_resource type="Texture2D" uid="uid://dv3gkxngthrhq" path="res://sprites/fipinho/ataque_especial/fipinho_especial 1.png" id="2_w22af"]
-[ext_resource type="Texture2D" uid="uid://qa5hr8r1w21h" path="res://sprites/fipinho/ataque_especial/fipinho_especial 2.png" id="3_uwale"]
-[ext_resource type="Texture2D" uid="uid://b13oqsuo1vt0g" path="res://sprites/fipinho/fipinho_parado.png" id="4_ilrth"]
-[ext_resource type="Texture2D" uid="uid://dvne5yusoo383" path="res://sprites/fipinho/fipinho_pulando.png" id="5_1hwhu"]
-[ext_resource type="Texture2D" uid="uid://c22d2w17scdhn" path="res://sprites/fipinho/ataque_basico/ataque_basico 1.png" id="6_pk3sj"]
-[ext_resource type="Texture2D" uid="uid://dsnbilicg0wkl" path="res://sprites/fipinho/ataque_basico/ataque_basico 2.png" id="7_h7iix"]
-[ext_resource type="Texture2D" uid="uid://dlvyg2lgfrgi8" path="res://sprites/fipinho/fipinho_morto.png" id="8_5ql46"]
+[ext_resource type="Texture2D" uid="uid://b88ckmrltfmps" path="res://sprites/fipinho/ataque_especial/fipinho_especial 1.png" id="2_w22af"]
+[ext_resource type="Texture2D" uid="uid://dd58j1ahp8rgq" path="res://sprites/fipinho/ataque_especial/fipinho_especial 2.png" id="3_uwale"]
+[ext_resource type="Texture2D" uid="uid://bpwbww31f66d5" path="res://sprites/fipinho/fipinho_parado.png" id="4_ilrth"]
+[ext_resource type="Texture2D" uid="uid://fgwnesaosgcw" path="res://sprites/fipinho/fipinho_pulando.png" id="5_1hwhu"]
+[ext_resource type="Texture2D" uid="uid://cw1tyqxoahvpb" path="res://sprites/fipinho/ataque_basico/ataque_basico 1.png" id="6_pk3sj"]
+[ext_resource type="Texture2D" uid="uid://k2tgfo6kxptn" path="res://sprites/fipinho/ataque_basico/ataque_basico 2.png" id="7_h7iix"]
+[ext_resource type="Texture2D" uid="uid://clq16f52h4llp" path="res://sprites/fipinho/fipinho_morto.png" id="8_5ql46"]
 
 [sub_resource type="SpriteFrames" id="23"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ilrth")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 7.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("6_pk3sj")
@@ -25,6 +33,14 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_w22af")
+}],
+"loop": false,
+"name": &"defesa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w22af")
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_uwale")
@@ -32,22 +48,6 @@ animations = [{
 "loop": false,
 "name": &"especial",
 "speed": 6.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_ilrth")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_1hwhu")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -59,32 +59,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_w22af")
+"texture": ExtResource("4_ilrth")
 }],
-"loop": false,
-"name": &"ui_defesa",
+"loop": true,
+"name": &"parado",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_ilrth")
+"texture": ExtResource("5_1hwhu")
 }],
 "loop": true,
-"name": &"walking",
-"speed": 7.0
+"name": &"pulo",
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="24"]
 size = Vector2(161.45, 155.017)
 
-[node name="Fipinho" type="CharacterBody2D"]
+[node name="Duolingo" type="CharacterBody2D"]
 script = ExtResource("1_boetu")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(21, 134.00003)
 scale = Vector2(0.9786711, 0.9786708)
 sprite_frames = SubResource("23")
-animation = &"morto"
+animation = &"parado"
 offset = Vector2(0, -60)
 
 [node name="Body" type="CollisionShape2D" parent="."]

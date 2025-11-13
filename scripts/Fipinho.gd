@@ -46,15 +46,15 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("p1_especial") and especial_ativa == "":
 		_set_special("especial")
 
-	var anim = "idle"
+	var anim = "parado"
 	if especial_ativa != "":
 		anim = especial_ativa
 	elif defendendo:
-		anim = "ui_defesa"
+		anim = "defesa"
 	elif not is_on_floor():
-		anim = "jump"
+		anim = "pulo"
 	elif horiz != 0:
-		anim = "walking"
+		anim = "andando"
 	$Sprite2D.play(anim)
 
 	set_velocity(movimento)
@@ -139,9 +139,55 @@ func _on_Sprite_animation_finished():
 		ataque()
 	especial_ativa = ""
 	
-	
 func _morrer():
-	if $Sprite2D and $Sprite2D.has_animation("morto"):
-		$Sprite2D.play("death")
+	# para física/eprocessamento
 	set_physics_process(false)
-	print("%s derrubado!" % name)
+	set_process(false)
+
+	var sprite = get_node_or_null("Sprite2D")
+	# se não existir o Sprite, remove direto
+	if not sprite:
+		queue_free()
+		return
+
+	# se for AnimatedSprite2D (Godot 4) -> checar sprite_frames
+	if sprite is AnimatedSprite2D:
+		var sf = null
+		# propriedade correta em Godot 4 é `sprite_frames`
+		if sprite.has_method("get_sprite_frames"):
+			# métodos convenientes, mas pegamos a propriedade direta:
+			sf = sprite.sprite_frames
+		else:
+			# fallback
+			sf = sprite.sprite_frames
+
+		if sf and sf.has_animation("death"):
+			# conectamos o sinal (ok conectar sem checar, pois vamos dar queue_free() no fim)
+			# o signal passa o nome da animação: animation_finished(String anim)
+			if not sprite.is_connected("animation_finished", Callable(self, "_on_death_anim_finished")):
+				sprite.animation_finished.connect(Callable(self, "_on_death_anim_finished"))
+			sprite.play("death")
+			return
+		else:
+			# não tem animação death -> apenas esconder e remover
+			sprite.visible = false
+			await get_tree().process_frame
+			queue_free()
+			return
+
+	# se for Sprite2D ou outro tipo sem animações
+	sprite.visible = false
+	await get_tree().process_frame
+	queue_free()
+
+
+# callback para AnimatedSprite2D
+func _on_death_anim_finished(anim_name:String) -> void:
+	# só removemos se for realmente a animação "death"
+	if anim_name == "death":
+		# desconectar para segurança (evita múltiplas chamadas, embora o node vá sumir)
+		var sprite = get_node_or_null("Sprite2D")
+		if sprite and sprite is AnimatedSprite2D:
+			if sprite.is_connected("animation_finished", Callable(self, "_on_death_anim_finished")):
+				sprite.animation_finished.disconnect(Callable(self, "_on_death_anim_finished"))
+		queue_free()
